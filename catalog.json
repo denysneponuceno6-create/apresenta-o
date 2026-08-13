@@ -573,12 +573,12 @@
     ]
   },
   {
-    "id": "LOJA DO JEANS",
+    "id": "bella",
     "num": "05",
     "name": "CENTRO",
-    "tag": "(BAHIA)",
-    "badgeTop": "LOJA",
-    "badgeMain": "JEANS",
+    "tag": "(MARANHÃO)",
+    "badgeTop": "Moda",
+    "badgeMain": "BELLA",
     "isPhotoLogo": true,
     "tagline": "Praticidade, variedade e moda ao seu alcance. Tudo para você montar o look ideal.",
     "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
@@ -701,14 +701,14 @@
     ]
   },
   {
-    "id": "LOJA DO JEANS",
+    "id": "fit",
     "num": "06",
     "name": "SANTA CRUZ",
-    "tag": "(BAHIA)",
+    "tag": "(MARANHÃO)",
     "badgeTop": "Moda",
     "badgeMain": "FITZONE",
     "isPhotoLogo": true,
-    "tagline": "Mais opções, mais estilo e as melhores peças para deixar seu visual ainda mais completo.",
+    "tagline": "Leggings, tops e conjuntos para treinar com estilo.",
     "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
     "whatsapp": "5563992233471",
     "theme": {
