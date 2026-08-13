@@ -763,10 +763,10 @@ var JEANS_LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAEyCAYA
 ============================================================ */
 var STORES = [
   {
-    id:"jeans", num:"01", name:"Loja do Jeans", tag:"Moda jeans",
+    id:"jeans", num:"01", name:"PALMAS", tag:"(TOCANTINS)",
     badgeTop:"Loja do", badgeMain:"JEANS", isPhotoLogo:true,
-    tagline:"Calças, jaquetas e vestidos jeans para toda a família.",
-    heroLede:"Peças em jeans com caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
+    tagline:"Estilo, variedade e novidades para você encontrar o look perfeito em um só lugar.",
+    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
     whatsapp:"5563992233471",
     theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
     icon:ICONS.jeans,
@@ -783,10 +783,10 @@ var STORES = [
     ]
   },
   {
-    id:"elas", num:"02", name:"Elas Boutique", tag:"Moda feminina",
+    id:"elas", num:"02", name:"BALSAS", tag:"(MARANHÃO)",
     badgeTop:"Moda", badgeMain:"ELAS", isPhotoLogo:true,
-    tagline:"Vestidos, blusas e saias para o guarda-roupa dela.",
-    heroLede:"Peças femininas de caimento leve e tendência, com desconto exclusivo para quem compra pelo site.",
+    tagline:"Moda para todos os momentos, com peças que combinam com seu estilo e sua personalidade.",
+    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
     whatsapp:"5563992233471",
     theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
     icon:ICONS.dress,
@@ -801,10 +801,10 @@ var STORES = [
     ]
   },
   {
-    id:"deles", num:"03", name:"Deles Wear", tag:"Moda masculina",
+    id:"deles", num:"03", name:"IMPERATRIZ", tag:"(MARANHÃO)",
     badgeTop:"Estilo", badgeMain:"DELES", isPhotoLogo:true,
     tagline:"Camisas, calças e jaquetas com corte moderno.",
-    heroLede:"Guarda-roupa masculino essencial, do casual ao social, com qualidade de tecido garantida.",
+    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
     whatsapp:"5563992233471",
     theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
     icon:ICONS.shirt,
@@ -819,10 +819,10 @@ var STORES = [
     ]
   },
   {
-    id:"kids", num:"04", name:"Kids Play", tag:"Moda infantil",
+    id:"kids", num:"04", name:"AÇAILANDIA", tag:"(MARANHÃO)",
     badgeTop:"Moda", badgeMain:"KIDS", isPhotoLogo:true,
-    tagline:"Roupinhas confortáveis para bebês e crianças.",
-    heroLede:"Peças macias e resistentes, pensadas para acompanhar a energia da criançada — do bebê ao pré-adolescente.",
+    tagline:"Seu estilo começa aqui. Encontre peças versáteis, modernas e feitas para você.",
+    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
     whatsapp:"5563992233471",
     theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
     icon:ICONS.onesie,
@@ -837,10 +837,10 @@ var STORES = [
     ]
   },
   {
-    id:"bella", num:"05", name:"Bella Plus", tag:"Moda plus size",
+    id:"bella", num:"05", name:"CENTRO", tag:"(MARANHÃO)",
     badgeTop:"Moda", badgeMain:"BELLA", isPhotoLogo:true,
-    tagline:"Vestidos, blusas e calças em numeração estendida.",
-    heroLede:"Moda plus size com modelagem pensada para caber bem e valorizar cada curva, do G1 ao G4.",
+    tagline:"Praticidade, variedade e moda ao seu alcance. Tudo para você montar o look ideal.",
+    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
     whatsapp:"5563992233471",
     theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
     icon:ICONS.dress,
@@ -855,10 +855,10 @@ var STORES = [
     ]
   },
   {
-    id:"fit", num:"06", name:"FitZone", tag:"Moda fitness",
+    id:"fit", num:"06", name:"SANTA CRUZ", tag:"(MARANHÃO)",
     badgeTop:"Moda", badgeMain:"FITZONE", isPhotoLogo:true,
     tagline:"Leggings, tops e conjuntos para treinar com estilo.",
-    heroLede:"Tecidos com tecnologia de compressão e respirabilidade para acompanhar seu treino do aquecimento ao alongamento.",
+    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
     whatsapp:"5563992233471",
     theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
     icon:ICONS.legging,
@@ -1027,7 +1027,7 @@ function escAttr(s){ return String(s).replace(/'/g,"\\'"); }
 function renderHeader(){
   var s = state.storeId ? storeById(state.storeId) : null;
   var html = '';
-  html += '<a href="#/" class="brand"><span class="brand-mark">P6</span><div class="brand-name"><b>LOJA DO JEANS</b><span>Seis lojas · um endereço</span></div></a>';
+  html += '<a href="#/" class="brand"><span class="brand-mark">P6</span><div class="brand-name"><b>LOJA DO JEANS</b><span>Seis lojas · um lugar</span></div></a>';
   if(s){
     html += '<a href="#/" class="hdr-back">'+ICONS.back+' Trocar loja</a>';
     html += '<div class="hdr-store">'+buildBadge(s,"sm")+'<span class="hdr-store-name">'+s.name+'</span></div>';
@@ -1161,7 +1161,7 @@ function productCard(store, p, idx){
 function renderSelect(){
   var html = '';
   html += '<section class="select-hero"><div class="container">'+
-      '<span class="eyebrow">Seis lojas, um endereço</span>'+
+      '<span class="eyebrow">Seis lojas, um lugar</span>'+
       '<h1>Escolha uma loja para <span class="accent">começar</span></h1>'+
       '<p class="lede">Cada loja do jeans opera de forma independente — catálogo, estoque e atendimento próprios — mas você compra tudo em um único lugar.</p>'+
     '</div></section>';
