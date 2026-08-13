@@ -437,6 +437,7 @@ header.platform{
   display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
 .product-media svg{width:42%;height:42%;color:rgba(0,0,0,.32);}
+.product-media img{width:100%;height:100%;object-fit:cover;display:block;}
 .product-media .badge{
   position:absolute;top:12px;left:-6px;
   background:var(--store-p);color:var(--store-dark);
@@ -534,9 +535,10 @@ header.platform{
 .cart-item .thumb{
   width:60px;height:60px;border-radius:10px;flex:none;
   background:var(--swatch,var(--store-pale));
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
 .cart-item .thumb svg{width:52%;height:52%;color:rgba(0,0,0,.32);}
+.cart-item .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .cart-item-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;}
 .cart-item-info .nm{font-weight:700;font-size:.88rem;line-height:1.3;}
 .cart-item-info .vr{font-size:.74rem;color:var(--ink-soft);}
@@ -761,118 +763,7 @@ var JEANS_LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAEyCAYA
 /* ============================================================
    STORE + PRODUCT DATA
 ============================================================ */
-var STORES = [
-  {
-    id:"jeans", num:"01", name:"PALMAS", tag:"(TOCANTINS)",
-    badgeTop:"Loja do", badgeMain:"JEANS", isPhotoLogo:true,
-    tagline:"Estilo, variedade e novidades para você encontrar o look perfeito em um só lugar.",
-    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
-    whatsapp:"5563992233471",
-    theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
-    icon:ICONS.jeans,
-    categories:["Feminino","Masculino","Infantil"],
-    products:[
-      { cat:"Feminino", name:"Calça Jeans Skinny Cintura Alta", old:189.90, now:139.90, stock:14, icon:ICONS.jeans, sw:"#DCE6F5", sizes:["36","38","40","42","44"] },
-      { cat:"Feminino", name:"Jaqueta Jeans Oversized", old:259.90, now:199.90, stock:6, icon:ICONS.jacket, sw:"#F7E7B8", sizes:["36","38","40","42","44"] },
-      { cat:"Masculino", name:"Calça Jeans Reta Tradicional", old:179.90, now:129.90, stock:20, icon:ICONS.jeans, sw:"#E4E9F7", sizes:["38","40","42","44","46","48"] },
-      { cat:"Masculino", name:"Bermuda Jeans Slim", old:139.90, now:99.90, stock:3, icon:ICONS.jeans, sw:"#F0D9C0", sizes:["38","40","42","44","46","48"] },
-      { cat:"Feminino", name:"Vestido Jeans Midi", old:219.90, now:169.90, stock:0, icon:ICONS.skirt, sw:"#DCE6F5", sizes:["36","38","40","42","44"] },
-      { cat:"Infantil", name:"Jardineira Jeans Infantil", old:149.90, now:109.90, stock:9, icon:ICONS.jeans, sw:"#F7E7B8", sizes:["4","6","8","10","12"] },
-      { cat:"Feminino", name:"Saia Jeans com Botões", old:129.90, now:89.90, stock:11, icon:ICONS.skirt, sw:"#E4E9F7", sizes:["36","38","40","42","44"] },
-      { cat:"Masculino", name:"Colete Jeans com Forro", old:169.90, now:119.90, stock:5, icon:ICONS.jacket, sw:"#F0D9C0", sizes:["38","40","42","44","46","48"] }
-    ]
-  },
-  {
-    id:"elas", num:"02", name:"BALSAS", tag:"(MARANHÃO)",
-    badgeTop:"Moda", badgeMain:"ELAS", isPhotoLogo:true,
-    tagline:"Moda para todos os momentos, com peças que combinam com seu estilo e sua personalidade.",
-    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
-    whatsapp:"5563992233471",
-    theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
-    icon:ICONS.dress,
-    categories:["Vestidos","Blusas","Saias"],
-    products:[
-      { cat:"Vestidos", name:"Vestido Midi Alfaiataria", old:229.90, now:179.90, stock:9, icon:ICONS.dress, sw:"#FBE3E9", sizes:["PP","P","M","G","GG"] },
-      { cat:"Blusas", name:"Blusa Manga Bufante", old:129.90, now:94.90, stock:16, icon:ICONS.shirt, sw:"#F7D3DC", sizes:["PP","P","M","G","GG"] },
-      { cat:"Saias", name:"Saia Plissada Midi", old:149.90, now:109.90, stock:5, icon:ICONS.skirt, sw:"#F2C4D0", sizes:["PP","P","M","G","GG"] },
-      { cat:"Vestidos", name:"Vestido Longo Estampado", old:259.90, now:199.90, stock:0, icon:ICONS.dress, sw:"#FBE3E9", sizes:["PP","P","M","G","GG"] },
-      { cat:"Blusas", name:"Cropped Tricot Canelado", old:99.90, now:69.90, stock:21, icon:ICONS.shirt, sw:"#F7D3DC", sizes:["PP","P","M","G","GG"] },
-      { cat:"Saias", name:"Saia Jeans Clara", old:139.90, now:99.90, stock:7, icon:ICONS.skirt, sw:"#F2C4D0", sizes:["PP","P","M","G","GG"] }
-    ]
-  },
-  {
-    id:"deles", num:"03", name:"IMPERATRIZ", tag:"(MARANHÃO)",
-    badgeTop:"Estilo", badgeMain:"DELES", isPhotoLogo:true,
-    tagline:"Camisas, calças e jaquetas com corte moderno.",
-    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
-    whatsapp:"5563992233471",
-    theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
-    icon:ICONS.shirt,
-    categories:["Camisas","Calças","Jaquetas"],
-    products:[
-      { cat:"Camisas", name:"Camisa Social Slim Fit", old:169.90, now:129.90, stock:12, icon:ICONS.shirt, sw:"#E5EBD4", sizes:["P","M","G","GG","XG"] },
-      { cat:"Calças", name:"Calça Sarja Chino", old:159.90, now:119.90, stock:18, icon:ICONS.jeans, sw:"#DCE3C8", sizes:["38","40","42","44","46"] },
-      { cat:"Jaquetas", name:"Jaqueta Corta-Vento", old:249.90, now:189.90, stock:4, icon:ICONS.jacket, sw:"#D3DCBC", sizes:["P","M","G","GG"] },
-      { cat:"Camisas", name:"Camisa Polo Piquet", old:119.90, now:89.90, stock:0, icon:ICONS.shirt, sw:"#E5EBD4", sizes:["P","M","G","GG","XG"] },
-      { cat:"Calças", name:"Calça Jeans Slim Masculina", old:179.90, now:134.90, stock:9, icon:ICONS.jeans, sw:"#DCE3C8", sizes:["38","40","42","44","46"] },
-      { cat:"Jaquetas", name:"Jaqueta Jeans Trucker", old:259.90, now:199.90, stock:6, icon:ICONS.jacket, sw:"#D3DCBC", sizes:["P","M","G","GG"] }
-    ]
-  },
-  {
-    id:"kids", num:"04", name:"AÇAILANDIA", tag:"(MARANHÃO)",
-    badgeTop:"Moda", badgeMain:"KIDS", isPhotoLogo:true,
-    tagline:"Seu estilo começa aqui. Encontre peças versáteis, modernas e feitas para você.",
-    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
-    whatsapp:"5563992233471",
-    theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
-    icon:ICONS.onesie,
-    categories:["Bebê","Meninos","Meninas"],
-    products:[
-      { cat:"Bebê", name:"Macacão Bebê Manga Longa", old:79.90, now:59.90, stock:15, icon:ICONS.onesie, sw:"#FFDCD6", sizes:["RN","3M","6M","9M","12M"] },
-      { cat:"Meninos", name:"Conjunto Camiseta e Bermuda", old:99.90, now:74.90, stock:20, icon:ICONS.shirt, sw:"#FFE7C7", sizes:["2","4","6","8","10"] },
-      { cat:"Meninas", name:"Vestido Infantil Estampado", old:109.90, now:79.90, stock:6, icon:ICONS.dress, sw:"#FFD0DA", sizes:["2","4","6","8","10"] },
-      { cat:"Bebê", name:"Jardineira Jeans Bebê", old:89.90, now:64.90, stock:0, icon:ICONS.jeans, sw:"#FFDCD6", sizes:["RN","3M","6M","9M","12M"] },
-      { cat:"Meninos", name:"Calça Moletom Infantil", old:79.90, now:59.90, stock:13, icon:ICONS.legging, sw:"#FFE7C7", sizes:["2","4","6","8","10"] },
-      { cat:"Meninas", name:"Saia Tutu com Blusa", old:99.90, now:74.90, stock:8, icon:ICONS.skirt, sw:"#FFD0DA", sizes:["2","4","6","8","10"] }
-    ]
-  },
-  {
-    id:"bella", num:"05", name:"CENTRO", tag:"(MARANHÃO)",
-    badgeTop:"Moda", badgeMain:"BELLA", isPhotoLogo:true,
-    tagline:"Praticidade, variedade e moda ao seu alcance. Tudo para você montar o look ideal.",
-    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
-    whatsapp:"5563992233471",
-    theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
-    icon:ICONS.dress,
-    categories:["Vestidos","Blusas","Calças"],
-    products:[
-      { cat:"Vestidos", name:"Vestido Evasê Estampado", old:219.90, now:169.90, stock:8, icon:ICONS.dress, sw:"#F3D9E2", sizes:["G1","G2","G3","G4"] },
-      { cat:"Blusas", name:"Blusa Ombro a Ombro", old:119.90, now:89.90, stock:14, icon:ICONS.shirt, sw:"#EEC5D3", sizes:["G1","G2","G3","G4"] },
-      { cat:"Calças", name:"Calça Legging Plus Size", old:99.90, now:74.90, stock:0, icon:ICONS.legging, sw:"#E7B4C6", sizes:["G1","G2","G3","G4"] },
-      { cat:"Vestidos", name:"Vestido Longo Festa", old:299.90, now:229.90, stock:3, icon:ICONS.dress, sw:"#F3D9E2", sizes:["G1","G2","G3","G4"] },
-      { cat:"Blusas", name:"Camisa Alfaiataria Plus", old:149.90, now:114.90, stock:10, icon:ICONS.shirt, sw:"#EEC5D3", sizes:["G1","G2","G3","G4"] },
-      { cat:"Calças", name:"Calça Jeans Plus Size", old:189.90, now:144.90, stock:6, icon:ICONS.jeans, sw:"#E7B4C6", sizes:["G1","G2","G3","G4"] }
-    ]
-  },
-  {
-    id:"fit", num:"06", name:"SANTA CRUZ", tag:"(MARANHÃO)",
-    badgeTop:"Moda", badgeMain:"FITZONE", isPhotoLogo:true,
-    tagline:"Leggings, tops e conjuntos para treinar com estilo.",
-    heroLede:"caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
-    whatsapp:"5563992233471",
-    theme:{ p:"#F5B915", pd:"#DE9F00", dark:"#14204A", pale:"#FFE9AC" },
-    icon:ICONS.legging,
-    categories:["Leggings","Tops","Conjuntos"],
-    products:[
-      { cat:"Leggings", name:"Legging Compressão Alta", old:139.90, now:104.90, stock:17, icon:ICONS.legging, sw:"#EAF5CB", sizes:["PP","P","M","G","GG"] },
-      { cat:"Tops", name:"Top Fitness Nadador", old:79.90, now:59.90, stock:22, icon:ICONS.shirt, sw:"#DDEEB4", sizes:["PP","P","M","G","GG"] },
-      { cat:"Conjuntos", name:"Conjunto Legging + Top", old:199.90, now:154.90, stock:5, icon:ICONS.legging, sw:"#D1E69A", sizes:["PP","P","M","G","GG"] },
-      { cat:"Leggings", name:"Legging Cropped Estampada", old:119.90, now:89.90, stock:0, icon:ICONS.legging, sw:"#EAF5CB", sizes:["PP","P","M","G","GG"] },
-      { cat:"Tops", name:"Regata Dry Fit", old:69.90, now:49.90, stock:19, icon:ICONS.shirt, sw:"#DDEEB4", sizes:["PP","P","M","G","GG"] },
-      { cat:"Conjuntos", name:"Conjunto Shorts + Top", old:169.90, now:129.90, stock:9, icon:ICONS.legging, sw:"#D1E69A", sizes:["PP","P","M","G","GG"] }
-    ]
-  }
-];
+var STORES = [];
 
 function buildBadge(store, size){
   if(store.isPhotoLogo){
@@ -988,7 +879,7 @@ function renderCartDrawer(){
 
   wrap.innerHTML = state.cart.items.map(function(it){
     return '<div class="cart-item">'+
-      '<div class="thumb" style="--swatch:'+it.sw+';">'+it.icon+'</div>'+
+      '<div class="thumb" style="--swatch:'+it.sw+';">'+(it.img?'<img src="'+it.img+'" alt="'+escAttr(it.name)+'">':(ICONS[it.icon]||ICONS.shirt))+'</div>'+
       '<div class="cart-item-info">'+
         '<div class="nm">'+it.name+'</div>'+
         (it.variant?'<div class="vr">'+it.variant+'</div>':'')+
@@ -1075,7 +966,7 @@ function productCard(store, p, idx){
   el.innerHTML =
     '<div class="product-media" style="--swatch:'+p.sw+'">'+
       (off>0 && !soldOut ? '<span class="badge">-'+off+'%</span>' : '')+
-      p.icon+
+      (p.img ? '<img src="'+p.img+'" alt="'+p.name.replace(/"/g,"&quot;")+'">' : (ICONS[p.icon]||ICONS.shirt))+
       (soldOut ? '<div class="oos">Esgotado</div>' : '')+
     '</div>'+
     '<div class="product-info">'+
@@ -1130,7 +1021,7 @@ function productCard(store, p, idx){
   }
 
   function buildItem(){
-    return { name:p.name, unit:p.now, qty:qty, variant:selectedVariant||null, sw:p.sw, icon:p.icon };
+    return { name:p.name, unit:p.now, qty:qty, variant:selectedVariant||null, sw:p.sw, icon:p.icon, img:p.img||null };
   }
   function needsVariant(){
     if(!variants) return false;
@@ -1342,13 +1233,39 @@ function onHashChange(){
 }
 window.addEventListener("hashchange", onHashChange);
 
-/* footer store links */
-document.getElementById("footStoreLinks").innerHTML = STORES.map(function(s){
-  return '<li><a href="#/loja/'+s.id+'">'+s.name+'</a></li>';
-}).join("");
 document.getElementById("year").textContent = new Date().getFullYear();
 
-onHashChange();
+/* ============================================================
+   CATALOG LOADING
+   O catálogo (lojas + produtos) vive em catalog.json, separado
+   deste arquivo. Isso permite atualizar o catálogo (via o painel
+   admin.html) sem precisar editar o código do site — basta trocar
+   o arquivo catalog.json no servidor.
+============================================================ */
+function loadCatalog(){
+  els.app.innerHTML = '<div class="container" style="padding:80px 20px;text-align:center;color:var(--ink-soft);">Carregando catálogo…</div>';
+  fetch("catalog.json", { cache: "no-store" })
+    .then(function(r){
+      if(!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function(data){
+      STORES = data;
+      document.getElementById("footStoreLinks").innerHTML = STORES.map(function(s){
+        return '<li><a href="#/loja/'+s.id+'">'+s.name+'</a></li>';
+      }).join("");
+      onHashChange();
+    })
+    .catch(function(err){
+      els.app.innerHTML = '<div class="container" style="padding:80px 20px;text-align:center;color:var(--danger);">'+
+        '<h3>Não foi possível carregar o catálogo</h3>'+
+        '<p>Verifique se o arquivo <code>catalog.json</code> está na mesma pasta deste site e se ele está sendo acessado via http(s) (não funciona abrindo o arquivo direto no navegador).</p>'+
+        '<p style="font-family:var(--font-mono);font-size:.8rem;">'+ (err && err.message ? err.message : err) +'</p>'+
+      '</div>';
+    });
+}
+
+loadCatalog();
 
 })();
 </script>

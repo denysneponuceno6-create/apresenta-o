@@ -1,0 +1,837 @@
+[
+  {
+    "id": "jeans",
+    "num": "01",
+    "name": "PALMAS",
+    "tag": "(TOCANTINS)",
+    "badgeTop": "Loja do",
+    "badgeMain": "JEANS",
+    "isPhotoLogo": true,
+    "tagline": "Estilo, variedade e novidades para você encontrar o look perfeito em um só lugar.",
+    "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
+    "whatsapp": "5563992233471",
+    "theme": {
+      "p": "#F5B915",
+      "pd": "#DE9F00",
+      "dark": "#14204A",
+      "pale": "#FFE9AC"
+    },
+    "icon": "jeans",
+    "categories": [
+      "Feminino",
+      "Masculino",
+      "Infantil"
+    ],
+    "products": [
+      {
+        "cat": "Feminino",
+        "name": "Calça Jeans Skinny Cintura Alta",
+        "old": 189.9,
+        "now": 139.9,
+        "stock": 14,
+        "icon": "jeans",
+        "sw": "#DCE6F5",
+        "sizes": [
+          "36",
+          "38",
+          "40",
+          "42",
+          "44"
+        ],
+        "id": "jeans-1",
+        "img": null
+      },
+      {
+        "cat": "Feminino",
+        "name": "Jaqueta Jeans Oversized",
+        "old": 259.9,
+        "now": 199.9,
+        "stock": 6,
+        "icon": "jacket",
+        "sw": "#F7E7B8",
+        "sizes": [
+          "36",
+          "38",
+          "40",
+          "42",
+          "44"
+        ],
+        "id": "jeans-2",
+        "img": null
+      },
+      {
+        "cat": "Masculino",
+        "name": "Calça Jeans Reta Tradicional",
+        "old": 179.9,
+        "now": 129.9,
+        "stock": 20,
+        "icon": "jeans",
+        "sw": "#E4E9F7",
+        "sizes": [
+          "38",
+          "40",
+          "42",
+          "44",
+          "46",
+          "48"
+        ],
+        "id": "jeans-3",
+        "img": null
+      },
+      {
+        "cat": "Masculino",
+        "name": "Bermuda Jeans Slim",
+        "old": 139.9,
+        "now": 99.9,
+        "stock": 3,
+        "icon": "jeans",
+        "sw": "#F0D9C0",
+        "sizes": [
+          "38",
+          "40",
+          "42",
+          "44",
+          "46",
+          "48"
+        ],
+        "id": "jeans-4",
+        "img": null
+      },
+      {
+        "cat": "Feminino",
+        "name": "Vestido Jeans Midi",
+        "old": 219.9,
+        "now": 169.9,
+        "stock": 0,
+        "icon": "skirt",
+        "sw": "#DCE6F5",
+        "sizes": [
+          "36",
+          "38",
+          "40",
+          "42",
+          "44"
+        ],
+        "id": "jeans-5",
+        "img": null
+      },
+      {
+        "cat": "Infantil",
+        "name": "Jardineira Jeans Infantil",
+        "old": 149.9,
+        "now": 109.9,
+        "stock": 9,
+        "icon": "jeans",
+        "sw": "#F7E7B8",
+        "sizes": [
+          "4",
+          "6",
+          "8",
+          "10",
+          "12"
+        ],
+        "id": "jeans-6",
+        "img": null
+      },
+      {
+        "cat": "Feminino",
+        "name": "Saia Jeans com Botões",
+        "old": 129.9,
+        "now": 89.9,
+        "stock": 11,
+        "icon": "skirt",
+        "sw": "#E4E9F7",
+        "sizes": [
+          "36",
+          "38",
+          "40",
+          "42",
+          "44"
+        ],
+        "id": "jeans-7",
+        "img": null
+      },
+      {
+        "cat": "Masculino",
+        "name": "Colete Jeans com Forro",
+        "old": 169.9,
+        "now": 119.9,
+        "stock": 5,
+        "icon": "jacket",
+        "sw": "#F0D9C0",
+        "sizes": [
+          "38",
+          "40",
+          "42",
+          "44",
+          "46",
+          "48"
+        ],
+        "id": "jeans-8",
+        "img": null
+      }
+    ]
+  },
+  {
+    "id": "elas",
+    "num": "02",
+    "name": "BALSAS",
+    "tag": "(MARANHÃO)",
+    "badgeTop": "Moda",
+    "badgeMain": "ELAS",
+    "isPhotoLogo": true,
+    "tagline": "Moda para todos os momentos, com peças que combinam com seu estilo e sua personalidade.",
+    "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
+    "whatsapp": "5563992233471",
+    "theme": {
+      "p": "#F5B915",
+      "pd": "#DE9F00",
+      "dark": "#14204A",
+      "pale": "#FFE9AC"
+    },
+    "icon": "dress",
+    "categories": [
+      "Vestidos",
+      "Blusas",
+      "Saias"
+    ],
+    "products": [
+      {
+        "cat": "Vestidos",
+        "name": "Vestido Midi Alfaiataria",
+        "old": 229.9,
+        "now": 179.9,
+        "stock": 9,
+        "icon": "dress",
+        "sw": "#FBE3E9",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "elas-1",
+        "img": null
+      },
+      {
+        "cat": "Blusas",
+        "name": "Blusa Manga Bufante",
+        "old": 129.9,
+        "now": 94.9,
+        "stock": 16,
+        "icon": "shirt",
+        "sw": "#F7D3DC",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "elas-2",
+        "img": null
+      },
+      {
+        "cat": "Saias",
+        "name": "Saia Plissada Midi",
+        "old": 149.9,
+        "now": 109.9,
+        "stock": 5,
+        "icon": "skirt",
+        "sw": "#F2C4D0",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "elas-3",
+        "img": null
+      },
+      {
+        "cat": "Vestidos",
+        "name": "Vestido Longo Estampado",
+        "old": 259.9,
+        "now": 199.9,
+        "stock": 0,
+        "icon": "dress",
+        "sw": "#FBE3E9",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "elas-4",
+        "img": null
+      },
+      {
+        "cat": "Blusas",
+        "name": "Cropped Tricot Canelado",
+        "old": 99.9,
+        "now": 69.9,
+        "stock": 21,
+        "icon": "shirt",
+        "sw": "#F7D3DC",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "elas-5",
+        "img": null
+      },
+      {
+        "cat": "Saias",
+        "name": "Saia Jeans Clara",
+        "old": 139.9,
+        "now": 99.9,
+        "stock": 7,
+        "icon": "skirt",
+        "sw": "#F2C4D0",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "elas-6",
+        "img": null
+      }
+    ]
+  },
+  {
+    "id": "deles",
+    "num": "03",
+    "name": "IMPERATRIZ",
+    "tag": "(MARANHÃO)",
+    "badgeTop": "Estilo",
+    "badgeMain": "DELES",
+    "isPhotoLogo": true,
+    "tagline": "Camisas, calças e jaquetas com corte moderno.",
+    "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
+    "whatsapp": "5563992233471",
+    "theme": {
+      "p": "#F5B915",
+      "pd": "#DE9F00",
+      "dark": "#14204A",
+      "pale": "#FFE9AC"
+    },
+    "icon": "shirt",
+    "categories": [
+      "Camisas",
+      "Calças",
+      "Jaquetas"
+    ],
+    "products": [
+      {
+        "cat": "Camisas",
+        "name": "Camisa Social Slim Fit",
+        "old": 169.9,
+        "now": 129.9,
+        "stock": 12,
+        "icon": "shirt",
+        "sw": "#E5EBD4",
+        "sizes": [
+          "P",
+          "M",
+          "G",
+          "GG",
+          "XG"
+        ],
+        "id": "deles-1",
+        "img": null
+      },
+      {
+        "cat": "Calças",
+        "name": "Calça Sarja Chino",
+        "old": 159.9,
+        "now": 119.9,
+        "stock": 18,
+        "icon": "jeans",
+        "sw": "#DCE3C8",
+        "sizes": [
+          "38",
+          "40",
+          "42",
+          "44",
+          "46"
+        ],
+        "id": "deles-2",
+        "img": null
+      },
+      {
+        "cat": "Jaquetas",
+        "name": "Jaqueta Corta-Vento",
+        "old": 249.9,
+        "now": 189.9,
+        "stock": 4,
+        "icon": "jacket",
+        "sw": "#D3DCBC",
+        "sizes": [
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "deles-3",
+        "img": null
+      },
+      {
+        "cat": "Camisas",
+        "name": "Camisa Polo Piquet",
+        "old": 119.9,
+        "now": 89.9,
+        "stock": 0,
+        "icon": "shirt",
+        "sw": "#E5EBD4",
+        "sizes": [
+          "P",
+          "M",
+          "G",
+          "GG",
+          "XG"
+        ],
+        "id": "deles-4",
+        "img": null
+      },
+      {
+        "cat": "Calças",
+        "name": "Calça Jeans Slim Masculina",
+        "old": 179.9,
+        "now": 134.9,
+        "stock": 9,
+        "icon": "jeans",
+        "sw": "#DCE3C8",
+        "sizes": [
+          "38",
+          "40",
+          "42",
+          "44",
+          "46"
+        ],
+        "id": "deles-5",
+        "img": null
+      },
+      {
+        "cat": "Jaquetas",
+        "name": "Jaqueta Jeans Trucker",
+        "old": 259.9,
+        "now": 199.9,
+        "stock": 6,
+        "icon": "jacket",
+        "sw": "#D3DCBC",
+        "sizes": [
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "deles-6",
+        "img": null
+      }
+    ]
+  },
+  {
+    "id": "kids",
+    "num": "04",
+    "name": "AÇAILANDIA",
+    "tag": "(MARANHÃO)",
+    "badgeTop": "Moda",
+    "badgeMain": "KIDS",
+    "isPhotoLogo": true,
+    "tagline": "Seu estilo começa aqui. Encontre peças versáteis, modernas e feitas para você.",
+    "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
+    "whatsapp": "5563992233471",
+    "theme": {
+      "p": "#F5B915",
+      "pd": "#DE9F00",
+      "dark": "#14204A",
+      "pale": "#FFE9AC"
+    },
+    "icon": "onesie",
+    "categories": [
+      "Bebê",
+      "Meninos",
+      "Meninas"
+    ],
+    "products": [
+      {
+        "cat": "Bebê",
+        "name": "Macacão Bebê Manga Longa",
+        "old": 79.9,
+        "now": 59.9,
+        "stock": 15,
+        "icon": "onesie",
+        "sw": "#FFDCD6",
+        "sizes": [
+          "RN",
+          "3M",
+          "6M",
+          "9M",
+          "12M"
+        ],
+        "id": "kids-1",
+        "img": null
+      },
+      {
+        "cat": "Meninos",
+        "name": "Conjunto Camiseta e Bermuda",
+        "old": 99.9,
+        "now": 74.9,
+        "stock": 20,
+        "icon": "shirt",
+        "sw": "#FFE7C7",
+        "sizes": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "id": "kids-2",
+        "img": null
+      },
+      {
+        "cat": "Meninas",
+        "name": "Vestido Infantil Estampado",
+        "old": 109.9,
+        "now": 79.9,
+        "stock": 6,
+        "icon": "dress",
+        "sw": "#FFD0DA",
+        "sizes": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "id": "kids-3",
+        "img": null
+      },
+      {
+        "cat": "Bebê",
+        "name": "Jardineira Jeans Bebê",
+        "old": 89.9,
+        "now": 64.9,
+        "stock": 0,
+        "icon": "jeans",
+        "sw": "#FFDCD6",
+        "sizes": [
+          "RN",
+          "3M",
+          "6M",
+          "9M",
+          "12M"
+        ],
+        "id": "kids-4",
+        "img": null
+      },
+      {
+        "cat": "Meninos",
+        "name": "Calça Moletom Infantil",
+        "old": 79.9,
+        "now": 59.9,
+        "stock": 13,
+        "icon": "legging",
+        "sw": "#FFE7C7",
+        "sizes": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "id": "kids-5",
+        "img": null
+      },
+      {
+        "cat": "Meninas",
+        "name": "Saia Tutu com Blusa",
+        "old": 99.9,
+        "now": 74.9,
+        "stock": 8,
+        "icon": "skirt",
+        "sw": "#FFD0DA",
+        "sizes": [
+          "2",
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "id": "kids-6",
+        "img": null
+      }
+    ]
+  },
+  {
+    "id": "bella",
+    "num": "05",
+    "name": "CENTRO",
+    "tag": "(MARANHÃO)",
+    "badgeTop": "Moda",
+    "badgeMain": "BELLA",
+    "isPhotoLogo": true,
+    "tagline": "Praticidade, variedade e moda ao seu alcance. Tudo para você montar o look ideal.",
+    "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
+    "whatsapp": "5563992233471",
+    "theme": {
+      "p": "#F5B915",
+      "pd": "#DE9F00",
+      "dark": "#14204A",
+      "pale": "#FFE9AC"
+    },
+    "icon": "dress",
+    "categories": [
+      "Vestidos",
+      "Blusas",
+      "Calças"
+    ],
+    "products": [
+      {
+        "cat": "Vestidos",
+        "name": "Vestido Evasê Estampado",
+        "old": 219.9,
+        "now": 169.9,
+        "stock": 8,
+        "icon": "dress",
+        "sw": "#F3D9E2",
+        "sizes": [
+          "G1",
+          "G2",
+          "G3",
+          "G4"
+        ],
+        "id": "bella-1",
+        "img": null
+      },
+      {
+        "cat": "Blusas",
+        "name": "Blusa Ombro a Ombro",
+        "old": 119.9,
+        "now": 89.9,
+        "stock": 14,
+        "icon": "shirt",
+        "sw": "#EEC5D3",
+        "sizes": [
+          "G1",
+          "G2",
+          "G3",
+          "G4"
+        ],
+        "id": "bella-2",
+        "img": null
+      },
+      {
+        "cat": "Calças",
+        "name": "Calça Legging Plus Size",
+        "old": 99.9,
+        "now": 74.9,
+        "stock": 0,
+        "icon": "legging",
+        "sw": "#E7B4C6",
+        "sizes": [
+          "G1",
+          "G2",
+          "G3",
+          "G4"
+        ],
+        "id": "bella-3",
+        "img": null
+      },
+      {
+        "cat": "Vestidos",
+        "name": "Vestido Longo Festa",
+        "old": 299.9,
+        "now": 229.9,
+        "stock": 3,
+        "icon": "dress",
+        "sw": "#F3D9E2",
+        "sizes": [
+          "G1",
+          "G2",
+          "G3",
+          "G4"
+        ],
+        "id": "bella-4",
+        "img": null
+      },
+      {
+        "cat": "Blusas",
+        "name": "Camisa Alfaiataria Plus",
+        "old": 149.9,
+        "now": 114.9,
+        "stock": 10,
+        "icon": "shirt",
+        "sw": "#EEC5D3",
+        "sizes": [
+          "G1",
+          "G2",
+          "G3",
+          "G4"
+        ],
+        "id": "bella-5",
+        "img": null
+      },
+      {
+        "cat": "Calças",
+        "name": "Calça Jeans Plus Size",
+        "old": 189.9,
+        "now": 144.9,
+        "stock": 6,
+        "icon": "jeans",
+        "sw": "#E7B4C6",
+        "sizes": [
+          "G1",
+          "G2",
+          "G3",
+          "G4"
+        ],
+        "id": "bella-6",
+        "img": null
+      }
+    ]
+  },
+  {
+    "id": "fit",
+    "num": "06",
+    "name": "SANTA CRUZ",
+    "tag": "(MARANHÃO)",
+    "badgeTop": "Moda",
+    "badgeMain": "FITZONE",
+    "isPhotoLogo": true,
+    "tagline": "Leggings, tops e conjuntos para treinar com estilo.",
+    "heroLede": "caimento perfeito e desconto exclusivo para quem compra pelo site — parcele em até 12x sem juros.",
+    "whatsapp": "5563992233471",
+    "theme": {
+      "p": "#F5B915",
+      "pd": "#DE9F00",
+      "dark": "#14204A",
+      "pale": "#FFE9AC"
+    },
+    "icon": "legging",
+    "categories": [
+      "Leggings",
+      "Tops",
+      "Conjuntos"
+    ],
+    "products": [
+      {
+        "cat": "Leggings",
+        "name": "Legging Compressão Alta",
+        "old": 139.9,
+        "now": 104.9,
+        "stock": 17,
+        "icon": "legging",
+        "sw": "#EAF5CB",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "fit-1",
+        "img": null
+      },
+      {
+        "cat": "Tops",
+        "name": "Top Fitness Nadador",
+        "old": 79.9,
+        "now": 59.9,
+        "stock": 22,
+        "icon": "shirt",
+        "sw": "#DDEEB4",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "fit-2",
+        "img": null
+      },
+      {
+        "cat": "Conjuntos",
+        "name": "Conjunto Legging + Top",
+        "old": 199.9,
+        "now": 154.9,
+        "stock": 5,
+        "icon": "legging",
+        "sw": "#D1E69A",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "fit-3",
+        "img": null
+      },
+      {
+        "cat": "Leggings",
+        "name": "Legging Cropped Estampada",
+        "old": 119.9,
+        "now": 89.9,
+        "stock": 0,
+        "icon": "legging",
+        "sw": "#EAF5CB",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "fit-4",
+        "img": null
+      },
+      {
+        "cat": "Tops",
+        "name": "Regata Dry Fit",
+        "old": 69.9,
+        "now": 49.9,
+        "stock": 19,
+        "icon": "shirt",
+        "sw": "#DDEEB4",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "fit-5",
+        "img": null
+      },
+      {
+        "cat": "Conjuntos",
+        "name": "Conjunto Shorts + Top",
+        "old": 169.9,
+        "now": 129.9,
+        "stock": 9,
+        "icon": "legging",
+        "sw": "#D1E69A",
+        "sizes": [
+          "PP",
+          "P",
+          "M",
+          "G",
+          "GG"
+        ],
+        "id": "fit-6",
+        "img": null
+      }
+    ]
+  }
+]

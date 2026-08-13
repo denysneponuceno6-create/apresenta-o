@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Painel do Catalogo - Acesso restrito"
+AuthUserFile /home/SEUUSUARIO/public_html/painel/.htpasswd
+Require valid-user

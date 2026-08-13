@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel do Catálogo — LOJA DO JEANS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15131F; --ink-2:#201C30; --ink-soft:#6B6680;
+  --paper:#FAF8F3; --paper-dim:#F1EDE3; --line:#E5E0D3; --white:#fff;
+  --brass:#C9A46A; --brass-deep:#A9803F; --brass-pale:#F1E4C8;
+  --ok:#2E7D4F; --danger:#B4432E;
+  --font-d:'Poppins',sans-serif; --font-b:'Inter',sans-serif; --font-m:'Space Mono',monospace;
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;font-family:var(--font-b);background:var(--paper-dim);color:var(--ink);}
+h1,h2,h3{font-family:var(--font-d);margin:0;}
+button{font:inherit;cursor:pointer;}
+input,select{font:inherit;}
+
+/* ===== header ===== */
+header{
+  background:var(--ink);color:var(--paper);padding:16px 24px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  position:sticky;top:0;z-index:20;box-shadow:0 4px 14px rgba(0,0,0,.18);
+}
+header h1{font-size:1.05rem;font-weight:800;letter-spacing:-.01em;}
+header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter-spacing:.06em;}
+.spacer{flex:1;}
+.hbtn{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:100px;
+  font-weight:700;font-size:.82rem;border:1.5px solid rgba(255,255,255,.25);
+  background:transparent;color:var(--paper);transition:.15s;
+}
+.hbtn:hover{background:rgba(255,255,255,.1);}
+.hbtn.primary{background:var(--brass);border-color:var(--brass);color:var(--ink);}
+.hbtn.primary:hover{filter:brightness(1.06);}
+#fileInput{display:none;}
+.save-status{font-family:var(--font-m);font-size:.68rem;color:var(--brass-pale);opacity:.8;}
+
+/* ===== layout ===== */
+.wrap{max-width:1180px;margin:0 auto;padding:22px 20px 80px;}
+.store-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;}
+.store-tab{
+  flex:none;padding:10px 18px;border-radius:100px;border:1.5px solid var(--line);
+  background:var(--white);font-weight:700;font-size:.82rem;color:var(--ink-soft);white-space:nowrap;
+}
+.store-tab.active{background:var(--ink);border-color:var(--ink);color:var(--white);}
+.store-tab .n{font-family:var(--font-m);opacity:.6;margin-right:6px;}
+
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.cat-chip{
+  padding:6px 14px;border-radius:100px;border:1.5px solid var(--line);background:var(--white);
+  font-size:.76rem;font-weight:700;color:var(--ink-soft);
+}
+.cat-chip.active{background:var(--brass-pale);border-color:var(--brass);color:var(--ink);}
+.add-cat{font-size:.76rem;color:var(--brass-deep);font-weight:700;border:1.5px dashed var(--brass);
+  background:transparent;border-radius:100px;padding:6px 14px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+.card{
+  background:var(--white);border-radius:var(--radius);border:1px solid var(--line);
+  overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 8px rgba(21,19,31,.05);
+}
+.card .media{
+  aspect-ratio:1/1;background:var(--swatch,var(--brass-pale));
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.card .media img{width:100%;height:100%;object-fit:cover;}
+.card .media svg{width:44%;height:44%;color:rgba(0,0,0,.28);}
+.card .media .oos{position:absolute;inset:0;background:rgba(21,19,31,.5);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-m);font-size:.7rem;font-weight:700;}
+.card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.card .cat{font-family:var(--font-m);font-size:.65rem;color:var(--brass-deep);text-transform:uppercase;letter-spacing:.05em;}
+.card h4{font-size:.86rem;font-weight:700;line-height:1.25;}
+.card .price-row{display:flex;align-items:baseline;gap:8px;margin-top:auto;}
+.card .old{font-size:.72rem;color:var(--ink-soft);text-decoration:line-through;}
+.card .now{font-family:var(--font-m);font-weight:700;font-size:.92rem;}
+.card .stock{font-size:.7rem;color:var(--ink-soft);}
+.card .stock.low{color:var(--danger);font-weight:700;}
+.card .actions{display:flex;gap:8px;padding:0 14px 14px;}
+.card .actions button{flex:1;padding:8px;border-radius:8px;border:1px solid var(--line);
+  background:var(--paper-dim);font-size:.74rem;font-weight:700;color:var(--ink);}
+.card .actions button.del{color:var(--danger);border-color:rgba(180,67,46,.3);}
+
+.add-card{
+  border:2px dashed var(--brass);border-radius:var(--radius);background:var(--brass-pale);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  min-height:220px;color:var(--brass-deep);font-weight:700;
+}
+
+.empty{text-align:center;padding:60px 20px;color:var(--ink-soft);}
+
+/* ===== modal ===== */
+.overlay{position:fixed;inset:0;background:rgba(21,19,31,.55);display:none;align-items:flex-start;
+  justify-content:center;padding:5vh 16px;overflow-y:auto;z-index:50;}
+.overlay.open{display:flex;}
+.modal{background:var(--white);border-radius:18px;max-width:520px;width:100%;padding:26px;
+  box-shadow:0 24px 60px rgba(0,0,0,.3);}
+.modal h2{font-size:1.05rem;margin-bottom:18px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:.74rem;font-weight:700;color:var(--ink-soft);margin-bottom:5px;}
+.field input[type=text],.field input[type=number],.field select,.field textarea{
+  width:100%;padding:10px 12px;border-radius:9px;border:1.5px solid var(--line);background:var(--paper-dim);
+}
+.field .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.img-drop{
+  border:1.5px dashed var(--line);border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px;
+  background:var(--paper-dim);cursor:pointer;
+}
+.img-drop .prev{width:64px;height:64px;border-radius:8px;background:var(--brass-pale);flex:none;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.img-drop .prev img{width:100%;height:100%;object-fit:cover;}
+.img-drop .txt{font-size:.78rem;color:var(--ink-soft);}
+.img-drop .txt b{color:var(--ink);}
+#imgFileInput{display:none;}
+.modal-actions{display:flex;gap:10px;margin-top:20px;}
+.modal-actions button{flex:1;padding:12px;border-radius:9px;font-weight:700;font-size:.86rem;border:none;}
+.btn-cancel{background:var(--paper-dim);color:var(--ink-soft);}
+.btn-save{background:var(--ink);color:var(--paper);}
+.btn-remove-img{font-size:.72rem;color:var(--danger);font-weight:700;background:none;border:none;padding:4px 0;}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);
+  padding:12px 20px;border-radius:100px;font-size:.82rem;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.25);
+  z-index:80;opacity:0;pointer-events:none;transition:.25s;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px);}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Painel do Catálogo</h1>
+    <div class="sub">LOJA DO JEANS · edição local</div>
+  </div>
+  <div class="spacer"></div>
+  <span class="save-status" id="saveStatus"></span>
+  <button class="hbtn" onclick="document.getElementById('fileInput').click()">Carregar catalog.json</button>
+  <input type="file" id="fileInput" accept="application/json">
+  <button class="hbtn primary" id="downloadBtn">Baixar catalog.json</button>
+</header>
+
+<div class="wrap">
+  <div class="store-tabs" id="storeTabs"></div>
+  <div class="toolbar" id="catToolbar"></div>
+  <div class="grid" id="productGrid"></div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h2 id="modalTitle">Novo produto</h2>
+    <form id="productForm">
+      <div class="field">
+        <label>Foto do produto</label>
+        <div class="img-drop" onclick="document.getElementById('imgFileInput').click()">
+          <div class="prev" id="imgPreview"></div>
+          <div class="txt"><b>Clique para escolher uma foto</b><br>JPG ou PNG · será redimensionada automaticamente</div>
+        </div>
+        <input type="file" id="imgFileInput" accept="image/*">
+        <button type="button" class="btn-remove-img" id="removeImgBtn" style="display:none;">Remover foto</button>
+      </div>
+      <div class="field">
+        <label>Nome do produto</label>
+        <input type="text" id="fName" required placeholder="Ex: Calça Jeans Skinny Cintura Alta">
+      </div>
+      <div class="field">
+        <label>Categoria</label>
+        <select id="fCat"></select>
+      </div>
+      <div class="field row2">
+        <div>
+          <label>Preço antigo (R$) — opcional</label>
+          <input type="number" id="fOld" step="0.01" min="0" placeholder="189.90">
+        </div>
+        <div>
+          <label>Preço atual (R$)</label>
+          <input type="number" id="fNow" step="0.01" min="0" required placeholder="139.90">
+        </div>
+      </div>
+      <div class="field row2">
+        <div>
+          <label>Estoque</label>
+          <input type="number" id="fStock" min="0" step="1" required placeholder="14">
+        </div>
+        <div>
+          <label>Tamanhos (separados por vírgula)</label>
+          <input type="text" id="fSizes" placeholder="36, 38, 40, 42, 44">
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" onclick="closeModal()">Cancelar</button>
+        <button type="submit" class="btn-save">Salvar produto</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+
+/* ---- ícones simples de fallback (mesma lib do site, versão enxuta) ---- */
+var ICONS = {
+  jeans:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2h10l1 4-1.3 15a1 1 0 0 1-1 .9h-2.4a1 1 0 0 1-1-.9L12 13l-.3 8a1 1 0 0 1-1 .9H8.3a1 1 0 0 1-1-.9L6 6z"/><path d="M6 6h12M9 2v4M15 2v4"/></svg>',
+  jacket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3 5 5l1 4-2 1 1 10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1l1-10-2-1 1-4-3-2-3 2-3-2z"/><path d="M12 5v16"/></svg>',
+  skirt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h6l1 4-3 1 6 12a1 1 0 0 1-.9 1.4H5.9A1 1 0 0 1 5 19.4L11 8 8 7z"/></svg>',
+  dress:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2h6l1 3-2 2 3 13a1 1 0 0 1-1 1.2H8a1 1 0 0 1-1-1.2l3-13-2-2z"/><path d="M9 5h6"/></svg>',
+  shirt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3 4 6l2 3 2-1v11a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V8l2 1 2-3-4-3-2 2h-4z"/></svg>',
+  legging:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8v6l1 14a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1l-1-10-1 10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1l1-14z"/></svg>',
+  onesie:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8l1 6-2 1v3l2 8a1 1 0 0 1-1 1.3H8a1 1 0 0 1-1-1.3l2-8V9L7 8z"/></svg>'
+};
+function iconFor(key){ return ICONS[key] || ICONS.shirt; }
+
+var STORAGE_KEY = "lojadojeans_catalog_draft_v1";
+var CATALOG = null;      // array de lojas
+var activeStoreId = null;
+var activeCat = "Todos";
+var editingProductId = null; // null = criando novo
+var pendingImg = null;       // dataURL da foto selecionada no modal
+
+var els = {
+  storeTabs: document.getElementById("storeTabs"),
+  catToolbar: document.getElementById("catToolbar"),
+  grid: document.getElementById("productGrid"),
+  overlay: document.getElementById("overlay"),
+  form: document.getElementById("productForm"),
+  saveStatus: document.getElementById("saveStatus"),
+  toast: document.getElementById("toast")
+};
+
+/* ============================================================
+   CARREGAMENTO
+   Ordem de prioridade: rascunho salvo no navegador > catalog.json
+   do servidor (fetch) > nada (usuário carrega manualmente o arquivo).
+============================================================ */
+function init(){
+  var draft = localStorage.getItem(STORAGE_KEY);
+  if(draft){
+    try{
+      CATALOG = JSON.parse(draft);
+      afterLoad("Rascunho salvo neste navegador foi restaurado.");
+      return;
+    }catch(e){ /* rascunho corrompido, ignora */ }
+  }
+  fetch("catalog.json", { cache:"no-store" })
+    .then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
+    .then(function(data){ CATALOG = data; afterLoad("catalog.json carregado."); })
+    .catch(function(){
+      els.grid.innerHTML = '<div class="empty">Não encontrei um <b>catalog.json</b> nesta pasta.<br>Use "Carregar catalog.json" para escolher o arquivo manualmente.</div>';
+    });
+}
+function afterLoad(msg){
+  activeStoreId = CATALOG[0] ? CATALOG[0].id : null;
+  renderStoreTabs();
+  renderAll();
+  showToast(msg);
+}
+
+document.getElementById("fileInput").addEventListener("change", function(e){
+  var file = e.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(){
+    try{
+      CATALOG = JSON.parse(reader.result);
+      afterLoad("Arquivo carregado: " + file.name);
+      saveDraft();
+    }catch(err){
+      alert("Esse arquivo não parece um catalog.json válido.");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+/* ============================================================
+   RASCUNHO AUTOMÁTICO (localStorage)
+============================================================ */
+function saveDraft(){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(CATALOG));
+    els.saveStatus.textContent = "Rascunho salvo às " + new Date().toLocaleTimeString("pt-BR");
+  }catch(e){
+    els.saveStatus.textContent = "Não foi possível salvar o rascunho (armazenamento cheio).";
+  }
+}
+
+/* ============================================================
+   DOWNLOAD
+============================================================ */
+document.getElementById("downloadBtn").addEventListener("click", function(){
+  if(!CATALOG){ alert("Nada carregado ainda."); return; }
+  var blob = new Blob([JSON.stringify(CATALOG, null, 2)], {type:"application/json"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = "catalog.json";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast("catalog.json baixado. Envie esse arquivo para a pasta do site.");
+});
+
+/* ============================================================
+   HELPERS
+============================================================ */
+function storeById(id){ for(var i=0;i<CATALOG.length;i++){ if(CATALOG[i].id===id) return CATALOG[i]; } return null; }
+function money(v){ return Number(v||0).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function showToast(msg){
+  els.toast.textContent = msg;
+  els.toast.classList.add("show");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(function(){ els.toast.classList.remove("show"); }, 3200);
+}
+
+/* ============================================================
+   RENDER: abas de loja
+============================================================ */
+function renderStoreTabs(){
+  els.storeTabs.innerHTML = CATALOG.map(function(s){
+    return '<button type="button" class="store-tab'+(s.id===activeStoreId?" active":"")+'" data-id="'+s.id+'">'+
+      '<span class="n">'+ (s.num||"") +'</span>'+ s.name +
+    '</button>';
+  }).join("");
+  els.storeTabs.querySelectorAll(".store-tab").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      activeStoreId = btn.getAttribute("data-id");
+      activeCat = "Todos";
+      renderStoreTabs();
+      renderAll();
+    });
+  });
+}
+
+/* ============================================================
+   RENDER: chips de categoria + botão de nova categoria
+============================================================ */
+function renderCatToolbar(store){
+  var cats = ["Todos"].concat(store.categories || []);
+  var html = cats.map(function(c){
+    return '<button type="button" class="cat-chip'+(activeCat===c?" active":"")+'" data-cat="'+c+'">'+c+'</button>';
+  }).join("");
+  html += '<button type="button" class="add-cat" id="addCatBtn">+ categoria</button>';
+  els.catToolbar.innerHTML = html;
+  els.catToolbar.querySelectorAll(".cat-chip").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      activeCat = btn.getAttribute("data-cat");
+      renderAll();
+    });
+  });
+  document.getElementById("addCatBtn").addEventListener("click", function(){
+    var name = prompt("Nome da nova categoria (ex: Acessórios):");
+    if(!name) return;
+    name = name.trim();
+    if(!name) return;
+    if(!store.categories) store.categories = [];
+    if(store.categories.indexOf(name) === -1){
+      store.categories.push(name);
+      saveDraft();
+    }
+    activeCat = name;
+    renderAll();
+  });
+}
+
+/* ============================================================
+   RENDER: grade de produtos
+============================================================ */
+function renderGrid(store){
+  var list = (store.products || []).filter(function(p){
+    return activeCat === "Todos" || p.cat === activeCat;
+  });
+
+  var html = '<button type="button" class="add-card" id="addProductBtn">'+
+      '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>'+
+      'Novo produto'+
+    '</button>';
+
+  list.forEach(function(p){
+    var soldOut = (p.stock||0) <= 0;
+    var media = p.img
+      ? '<img src="'+p.img+'" alt="'+escapeHtml(p.name)+'">'
+      : iconFor(p.icon);
+    html += '<div class="card">'+
+      '<div class="media" style="--swatch:'+(p.sw||"#F1E4C8")+'">'+ media +
+        (soldOut ? '<div class="oos">Esgotado</div>' : '') +
+      '</div>'+
+      '<div class="body">'+
+        '<span class="cat">'+escapeHtml(p.cat||"")+'</span>'+
+        '<h4>'+escapeHtml(p.name)+'</h4>'+
+        '<div class="price-row">'+
+          (p.old ? '<span class="old">R$ '+money(p.old)+'</span>' : '') +
+          '<span class="now">R$ '+money(p.now)+'</span>'+
+        '</div>'+
+        '<span class="stock'+(soldOut?" low":(p.stock<=5?" low":""))+'">'+
+          (soldOut ? "Sem estoque" : p.stock+" em estoque") +
+        '</span>'+
+      '</div>'+
+      '<div class="actions">'+
+        '<button type="button" data-edit="'+p.id+'">Editar</button>'+
+        '<button type="button" class="del" data-del="'+p.id+'">Excluir</button>'+
+      '</div>'+
+    '</div>';
+  });
+
+  els.grid.innerHTML = html;
+
+  document.getElementById("addProductBtn").addEventListener("click", function(){ openModal(null); });
+  els.grid.querySelectorAll("[data-edit]").forEach(function(btn){
+    btn.addEventListener("click", function(){ openModal(btn.getAttribute("data-edit")); });
+  });
+  els.grid.querySelectorAll("[data-del]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var id = btn.getAttribute("data-del");
+      var store = storeById(activeStoreId);
+      var p = store.products.find(function(x){ return x.id===id; });
+      if(!p) return;
+      if(confirm('Excluir "'+p.name+'"?')){
+        store.products = store.products.filter(function(x){ return x.id!==id; });
+        saveDraft();
+        renderGrid(store);
+      }
+    });
+  });
+}
+
+function escapeHtml(s){
+  return String(s||"").replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+  });
+}
+
+function renderAll(){
+  var store = storeById(activeStoreId);
+  if(!store) return;
+  renderCatToolbar(store);
+  renderGrid(store);
+}
+
+/* ============================================================
+   MODAL: novo / editar produto
+============================================================ */
+function openModal(productId){
+  editingProductId = productId;
+  var store = storeById(activeStoreId);
+  var p = productId ? store.products.find(function(x){ return x.id===productId; }) : null;
+
+  document.getElementById("modalTitle").textContent = p ? "Editar produto" : "Novo produto";
+
+  var catSel = document.getElementById("fCat");
+  catSel.innerHTML = (store.categories||[]).map(function(c){ return '<option value="'+c+'">'+c+'</option>'; }).join("");
+
+  document.getElementById("fName").value = p ? p.name : "";
+  if(p) catSel.value = p.cat;
+  document.getElementById("fOld").value = p && p.old ? p.old : "";
+  document.getElementById("fNow").value = p ? p.now : "";
+  document.getElementById("fStock").value = p ? p.stock : "";
+  document.getElementById("fSizes").value = p && p.sizes ? p.sizes.join(", ") : "";
+
+  pendingImg = p ? (p.img || null) : null;
+  refreshImgPreview();
+
+  els.overlay.classList.add("open");
+}
+function closeModal(){
+  els.overlay.classList.remove("open");
+  editingProductId = null;
+  pendingImg = null;
+}
+function refreshImgPreview(){
+  var prev = document.getElementById("imgPreview");
+  var removeBtn = document.getElementById("removeImgBtn");
+  if(pendingImg){
+    prev.innerHTML = '<img src="'+pendingImg+'">';
+    removeBtn.style.display = "block";
+  } else {
+    prev.innerHTML = '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--brass-deep)"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="m21 15-5-5-9 9"/></svg>';
+    removeBtn.style.display = "none";
+  }
+}
+document.getElementById("removeImgBtn").addEventListener("click", function(){
+  pendingImg = null;
+  refreshImgPreview();
+});
+
+/* upload + redimensionamento da foto via canvas, para manter o
+   catalog.json leve mesmo guardando as fotos como base64 */
+document.getElementById("imgFileInput").addEventListener("change", function(e){
+  var file = e.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(){
+    var img = new Image();
+    img.onload = function(){
+      var MAX = 900;
+      var w = img.width, h = img.height;
+      if(w > h && w > MAX){ h = Math.round(h * MAX/w); w = MAX; }
+      else if(h > MAX){ w = Math.round(w * MAX/h); h = MAX; }
+      var canvas = document.createElement("canvas");
+      canvas.width = w; canvas.height = h;
+      canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+      pendingImg = canvas.toDataURL("image/jpeg", 0.82);
+      refreshImgPreview();
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+  e.target.value = "";
+});
+
+els.form.addEventListener("submit", function(e){
+  e.preventDefault();
+  var store = storeById(activeStoreId);
+  var name = document.getElementById("fName").value.trim();
+  var cat = document.getElementById("fCat").value;
+  var oldP = parseFloat(document.getElementById("fOld").value) || 0;
+  var nowP = parseFloat(document.getElementById("fNow").value);
+  var stock = parseInt(document.getElementById("fStock").value, 10);
+  var sizes = document.getElementById("fSizes").value.split(",").map(function(s){ return s.trim(); }).filter(Boolean);
+
+  if(!name || isNaN(nowP) || isNaN(stock)){
+    alert("Preencha nome, preço atual e estoque.");
+    return;
+  }
+
+  if(editingProductId){
+    var p = store.products.find(function(x){ return x.id===editingProductId; });
+    p.name = name; p.cat = cat; p.old = oldP; p.now = nowP; p.stock = stock;
+    p.sizes = sizes.length ? sizes : undefined;
+    p.img = pendingImg;
+  } else {
+    if(!store.products) store.products = [];
+    var newId = store.id + "-" + Date.now();
+    store.products.push({
+      id: newId, cat: cat, name: name, old: oldP, now: nowP, stock: stock,
+      icon: "shirt", sw: "#F1E4C8", sizes: sizes.length ? sizes : undefined,
+      img: pendingImg
+    });
+  }
+
+  saveDraft();
+  closeModal();
+  renderAll();
+  showToast("Produto salvo. Não esqueça de baixar o catalog.json quando terminar.");
+});
+
+init();
+</script>
+</body>
+</html>
