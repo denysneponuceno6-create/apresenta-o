@@ -134,7 +134,7 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
 .card .checkwrap{position:absolute;top:10px;left:10px;z-index:5;display:none;}
 .card.bulk-on .checkwrap{display:block;}
 .card .checkwrap input{width:20px;height:20px;accent-color:var(--brass-deep);cursor:pointer;}
-.card .star{position:absolute;top:10px;right:10px;z-index:5;font-size:1.1rem;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));}
+.card .star{position:absolute;top:10px;right:10px;z-index:5;}
 .card .media{
   aspect-ratio:1/1;background:var(--swatch,var(--brass-pale));
   display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
@@ -308,6 +308,26 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
   .field .row2,.field .row3{grid-template-columns:1fr;}
   .gsearch input{width:130px;}
 }
+
+/* ============================================================
+   SISTEMA DE ÍCONES (SVG) — substitui emojis usados como ícone
+============================================================ */
+.ui-icon{
+  width:16px;height:16px;
+  display:inline-flex;align-items:center;justify-content:center;
+  flex-shrink:0;vertical-align:-3px;
+  line-height:0;
+}
+.ui-icon svg{width:100%;height:100%;display:block;}
+.ui-icon--nav{width:18px;height:18px;}
+.ui-icon--sm{width:15px;height:15px;}
+.ui-icon--title{width:20px;height:20px;}
+.mnav-btn .ui-icon{margin-right:6px;}
+button .ui-icon,.hbtn .ui-icon{margin-right:6px;vertical-align:-3px;}
+label .ui-icon{margin-right:5px;}
+.card .star.ui-icon{position:absolute;top:10px;right:10px;z-index:5;width:18px;height:18px;
+  color:var(--brass);filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));margin-right:0;vertical-align:baseline;}
+.cat-row .ico .ui-icon{width:20px;height:20px;}
 </style>
 </head>
 <body>
@@ -331,11 +351,11 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
 
 <nav class="mainnav">
   <div class="mainnav-inner" id="mainNav">
-    <button type="button" class="mnav-btn active" data-page="dashboard">📊 Visão geral</button>
-    <button type="button" class="mnav-btn" data-page="catalogo">📦 Catálogo</button>
-    <button type="button" class="mnav-btn" data-page="categorias">🏷️ Categorias</button>
-    <button type="button" class="mnav-btn" data-page="campanhas">🎯 Campanhas &amp; Temas</button>
-    <button type="button" class="mnav-btn" data-page="config">⚙️ Configurações</button>
+    <button type="button" class="mnav-btn active" data-page="dashboard"><span class="ui-icon ui-icon--nav" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></span> Visão geral</button>
+    <button type="button" class="mnav-btn" data-page="catalogo"><span class="ui-icon ui-icon--nav" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span> Catálogo</button>
+    <button type="button" class="mnav-btn" data-page="categorias"><span class="ui-icon ui-icon--nav" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.6 12.6 12 4H4v8l8.6 8.6a2 2 0 0 0 2.8 0l5.2-5.2a2 2 0 0 0 0-2.8z"/><circle cx="8.4" cy="8.4" r="1.15"/></svg></span> Categorias</button>
+    <button type="button" class="mnav-btn" data-page="campanhas"><span class="ui-icon ui-icon--nav" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.3"/><circle cx="12" cy="12" r="4.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></span> Campanhas &amp; Temas</button>
+    <button type="button" class="mnav-btn" data-page="config"><span class="ui-icon ui-icon--nav" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.5-2-3.5-2.4 1a7.7 7.7 0 0 0-1.7-1L15 3h-4l-.3 2.9a7.7 7.7 0 0 0-1.7 1l-2.4-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2 1.5 2 3.5 2.4-1a7.7 7.7 0 0 0 1.7 1L9 21h4l.3-2.9a7.7 7.7 0 0 0 1.7-1l2.4 1 2-3.5z"/></svg></span> Configurações</button>
   </div>
 </nav>
 
@@ -387,7 +407,7 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
         <option value="discount">Maior desconto</option>
         <option value="featured">Destaques primeiro</option>
       </select>
-      <button type="button" class="bulk-toggle" id="bulkToggleBtn">⚡ Edição em massa</button>
+      <button type="button" class="bulk-toggle" id="bulkToggleBtn"><span class="ui-icon ui-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span> Edição em massa</button>
       <div class="filler"></div>
       <span class="save-status" id="gridCount"></span>
     </div>
@@ -396,7 +416,7 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
       <button type="button" id="bulkAllBtn">Selecionar todos</button>
       <button type="button" id="bulkNoneBtn">Desmarcar todos</button>
       <button type="button" id="bulkCatBtn">Alterar categoria</button>
-      <button type="button" id="bulkFeatBtn">⭐ Marcar destaque</button>
+      <button type="button" id="bulkFeatBtn"><span class="ui-icon ui-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M12 3l2.7 5.9 6.3.7-4.7 4.4 1.3 6.3L12 17.4 6.4 20.3l1.3-6.3L3 9.6l6.3-.7z"/></svg></span> Marcar destaque</button>
       <button type="button" id="bulkBadgeBtn">Aplicar badge</button>
       <button type="button" class="danger" id="bulkDelBtn">Excluir selecionados</button>
     </div>
@@ -437,7 +457,7 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
       <h3>Segurança dos dados</h3>
       <div class="mini-row"><span>Rascunho automático neste navegador</span><span class="tag on">Ativo</span></div>
       <div class="mini-row"><span>Confirmação antes de ações destrutivas</span><span class="tag on">Ativo</span></div>
-      <div class="mini-row"><span>Desfazer última alteração</span><button type="button" class="hbtn" style="color:var(--ink);border-color:var(--line);" id="undoBtn">↩ Desfazer última ação</button></div>
+      <div class="mini-row"><span>Desfazer última alteração</span><button type="button" class="hbtn" style="color:var(--ink);border-color:var(--line);" id="undoBtn"><span class="ui-icon ui-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h9a5 5 0 0 1 0 10h-2"/><path d="M8 5 4 10l4 5"/></svg></span> Desfazer última ação</button></div>
     </div>
   </section>
 
@@ -533,7 +553,7 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
 
       <div class="tabpane" data-pane="vitrine">
         <div class="switch-row">
-          <label>⭐ Produto em destaque</label>
+          <label><span class="ui-icon ui-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M12 3l2.7 5.9 6.3.7-4.7 4.4 1.3 6.3L12 17.4 6.4 20.3l1.3-6.3L3 9.6l6.3-.7z"/></svg></span> Produto em destaque</label>
           <label class="switch"><input type="checkbox" id="fFeatured"><span class="slider"></span></label>
         </div>
         <div class="field" style="margin-top:12px;">
@@ -571,8 +591,8 @@ header .sub{font-family:var(--font-m);font-size:.68rem;color:var(--brass);letter
     </div>
     <div class="field row2">
       <div>
-        <label>Ícone (emoji, opcional)</label>
-        <input type="text" id="catIcon" placeholder="👖">
+        <label>Ícone (opcional)</label>
+        <input type="text" id="catIcon" placeholder="Ex: Camisetas">
       </div>
       <div>
         <label>Imagem (opcional)</label>
@@ -742,9 +762,43 @@ var ICONS = {
   dress:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2h6l1 3-2 2 3 13a1 1 0 0 1-1 1.2H8a1 1 0 0 1-1-1.2l3-13-2-2z"/><path d="M9 5h6"/></svg>',
   shirt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3 4 6l2 3 2-1v11a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V8l2 1 2-3-4-3-2 2h-4z"/></svg>',
   legging:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8v6l1 14a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1l-1-10-1 10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1l1-14z"/></svg>',
-  onesie:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8l1 6-2 1v3l2 8a1 1 0 0 1-1 1.3H8a1 1 0 0 1-1-1.3l2-8V9L7 8z"/></svg>'
+  onesie:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8l1 6-2 1v3l2 8a1 1 0 0 1-1 1.3H8a1 1 0 0 1-1-1.3l2-8V9L7 8z"/></svg>',
+
+  /* ---- ícones de interface (navegação, botões, ações) ---- */
+  dashboard:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
+  tag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.6 12.6 12 4H4v8l8.6 8.6a2 2 0 0 0 2.8 0l5.2-5.2a2 2 0 0 0 0-2.8z"/><circle cx="8.4" cy="8.4" r="1.15"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.3"/><circle cx="12" cy="12" r="4.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.5-2-3.5-2.4 1a7.7 7.7 0 0 0-1.7-1L15 3h-4l-.3 2.9a7.7 7.7 0 0 0-1.7 1l-2.4-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2 1.5 2 3.5 2.4-1a7.7 7.7 0 0 0 1.7 1L9 21h4l.3-2.9a7.7 7.7 0 0 0 1.7-1l2.4 1 2-3.5z"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg>',
+  upload:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>',
+  download:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>',
+  edit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M14 6l4 4"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16"/><path d="M9 7V4h6v3M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"/><path d="M10 11v6M14 11v6"/></svg>',
+  plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>',
+  save:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v6h8V4M8 20v-6h8v6"/></svg>',
+  cancel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+  undo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h9a5 5 0 0 1 0 10h-2"/><path d="M8 5 4 10l4 5"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M12 3l2.7 5.9 6.3.7-4.7 4.4 1.3 6.3L12 17.4 6.4 20.3l1.3-6.3L3 9.6l6.3-.7z"/></svg>',
+  starOutline:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3l2.7 5.9 6.3.7-4.7 4.4 1.3 6.3L12 17.4 6.4 20.3l1.3-6.3L3 9.6l6.3-.7z"/></svg>',
+  checklist:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="5" height="5" rx="1"/><path d="M4.5 6.5l1 1 2-2"/><rect x="3" y="15" width="5" height="5" rx="1"/><path d="M4.5 17.5l1 1 2-2"/><path d="M11 6.5h10M11 17.5h10"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12.5l5 5L20 6"/></svg>',
+  zap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
+  store:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0"/><path d="M5 9v11h14V9"/><path d="M9.5 20v-6h5v6"/></svg>',
+  price:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9.5 15.5c.5 1 1.5 1.5 2.7 1.5 1.7 0 3-1 3-2.3 0-1.4-1.3-2-3-2.4-1.7-.4-3-1-3-2.4 0-1.3 1.3-2.3 3-2.3 1.2 0 2.2.5 2.7 1.5M12 6.5v11"/></svg>',
+  stock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>',
+  security:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
+  calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>',
+  image:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L4 19"/></svg>',
+  palette:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 2-2 1.6 1.6 0 0 1 1.6-1.6h1.4A2.5 2.5 0 0 0 21 15c0-6.6-4-12-9-12z"/><circle cx="7.5" cy="11" r="1.1"/><circle cx="9" cy="7" r="1.1"/><circle cx="14" cy="7" r="1.1"/><circle cx="16" cy="11" r="1.1"/></svg>',
+  success:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8.3 12.3l2.4 2.4 5-5"/></svg>',
+  warning:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3.5 21.5 20h-19z"/><path d="M12 9.5v4.5"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><circle cx="12" cy="8" r=".9" fill="currentColor" stroke="none"/></svg>',
+  drag:'<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="8" cy="6" r="1.3"/><circle cx="16" cy="6" r="1.3"/><circle cx="8" cy="12" r="1.3"/><circle cx="16" cy="12" r="1.3"/><circle cx="8" cy="18" r="1.3"/><circle cx="16" cy="18" r="1.3"/></svg>'
 };
 function iconFor(key){ return ICONS[key] || ICONS.shirt; }
+function uiIcon(key, cls){ return '<span class="ui-icon'+(cls?" "+cls:"")+'" aria-hidden="true">'+(ICONS[key]||"")+'</span>'; }
 
 /* ============================================================
    CONSTANTES
@@ -1175,7 +1229,7 @@ function renderDashboard(){
   var lowHtml = lowList.slice(0,8).map(function(x){
     return '<div class="mini-row"><span>'+escapeHtml(x.p.name)+' <span style="color:var(--ink-soft)">— '+escapeHtml(x.s.name)+'</span></span>'+
       '<span class="tag'+(x.st<=0?" off":"")+'">'+(x.st<=0?"Esgotado":x.st+" un.")+'</span></div>';
-  }).join("") || '<div class="mini-row"><span>Nenhum produto com estoque baixo. 🎉</span></div>';
+  }).join("") || '<div class="mini-row"><span><span class="ui-icon ui-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8.3 12.3l2.4 2.4 5-5"/></svg></span> Nenhum produto com estoque baixo.</span></div>';
   $("dashLowStock").innerHTML = lowHtml;
 
   var campHtml = CAMPAIGNS.length ? CAMPAIGNS.map(function(c){
@@ -1191,7 +1245,7 @@ function renderDashboard(){
   var featList = [];
   CATALOG.forEach(function(s){ s.products.forEach(function(p){ if(p.featured) featList.push({s:s,p:p}); }); });
   $("dashFeatured").innerHTML = featList.length ? featList.slice(0,8).map(function(x){
-    return '<div class="mini-row"><span>⭐ '+escapeHtml(x.p.name)+'</span><span class="tag">'+escapeHtml(x.s.name)+'</span></div>';
+    return '<div class="mini-row"><span><span class="ui-icon ui-icon--sm" aria-hidden="true">'+ICONS.star+'</span> '+escapeHtml(x.p.name)+'</span><span class="tag">'+escapeHtml(x.s.name)+'</span></div>';
   }).join("") : '<div class="mini-row"><span>Nenhum produto marcado como destaque ainda.</span></div>';
 }
 function statCard(num, lbl, cls){
@@ -1276,7 +1330,7 @@ function renderGrid(store){
     }).join("");
     html += '<div class="card'+(bulkMode?" bulk-on":"")+(bulkSelected[p.id]?" selected":"")+'" data-id="'+p.id+'">'+
       '<div class="checkwrap"><input type="checkbox" data-check="'+p.id+'" '+(bulkSelected[p.id]?"checked":"")+'></div>'+
-      (p.featured ? '<div class="star">⭐</div>' : '') +
+      (p.featured ? '<div class="star ui-icon" aria-hidden="true">'+ICONS.star+'</div>' : '') +
       '<div class="media" style="--swatch:'+(p.sw||"#F1E4C8")+'">'+ media +
         (p.badge ? '<span class="badgechip">'+escapeHtml(p.badge)+'</span>' : '') +
         (soldOut ? '<div class="oos">Esgotado</div>' : '') +
@@ -1597,7 +1651,7 @@ function renderCategoriasPage(){
   $("catList").innerHTML = cats.map(function(c, idx){
     var meta = store.categoryMeta[c] || {};
     var count = store.products.filter(function(p){ return p.cat===c; }).length;
-    var iconHtml = meta.img ? '<img src="'+meta.img+'">' : (meta.icon || "🏷️");
+    var iconHtml = meta.img ? '<img src="'+meta.img+'">' : (meta.icon || '<span class="ui-icon ui-icon--title" aria-hidden="true">'+ICONS.tag+'</span>');
     return '<div class="cat-row" draggable="true" data-idx="'+idx+'">'+
       '<span class="drag">⠿</span>'+
       '<div class="ico">'+iconHtml+'</div>'+
@@ -1605,7 +1659,7 @@ function renderCategoriasPage(){
       '<span class="cnt">'+count+' produto(s)</span>'+
       '<span class="status '+(meta.active!==false?"on":"off")+'">'+(meta.active!==false?"Ativa":"Inativa")+'</span>'+
       '<div class="rowbtns">'+
-        '<button type="button" data-editcat="'+escapeAttr(c)+'">✏️ Editar</button>'+
+        '<button type="button" data-editcat="'+escapeAttr(c)+'"><span class="ui-icon ui-icon--sm" aria-hidden="true">'+ICONS.edit+'</span> Editar</button>'+
         '<button type="button" class="del" data-delcat="'+escapeAttr(c)+'">Excluir</button>'+
       '</div>'+
     '</div>';
@@ -1727,7 +1781,7 @@ function onCatDeleteConfirm(){
     store.products.forEach(function(p){ if(p.cat===name) p.cat = "Sem categoria"; });
     if(store.categories.indexOf("Sem categoria")===-1){
       store.categories.push("Sem categoria");
-      store.categoryMeta["Sem categoria"] = { desc:"Produtos sem categoria definida", icon:"❔", img:null, active:true };
+      store.categoryMeta["Sem categoria"] = { desc:"Produtos sem categoria definida", icon:"", img:null, active:true };
     }
   }
   store.categories = store.categories.filter(function(c){ return c!==name; });
